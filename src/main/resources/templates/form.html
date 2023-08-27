@@ -13,12 +13,15 @@
 		<div class="row mt-5">
 			<div class="row-md-6 offset-md-3">
 				
-<form>
+	
+	//action="@{/process}": This attribute specifies where the form data should be sent 			
+<form th:action="@{/process}" method="post" th:object="${loginData}">
   <div class="mb-3">
     <label for="exampleFormControlTextarea1" class="form-label">User Name</label>
     
     <input type="text" 
     name="userName"
+    th:value="${loginData.userName}"
     class="form-control"
      id="exampleFormControlTextarea1"
       aria-describedby="emailHelp">
@@ -29,7 +32,8 @@
     <label for="exampleInputPassword1" class="form-label">Email address</label>
     
     <input type="email"
-    name="emailAddress"
+    name="mailAddress"
+   th:value="${loginData.mailAddress}"
      class="form-control"
          id="exampleInputEmail1"
      
