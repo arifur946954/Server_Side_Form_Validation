@@ -1,7 +1,20 @@
 package Form.Entity;
 
+
+
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
+
 public class LoginData {
+	
+    @NotBlank(message = "user name must be contain some character")
+    @Size(min = 3, max = 12, message = "user nanme contain 3 to 12 character")
+
 	private String userName;
+    @Email(regexp = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$",
+    		message = "Invalid email")
 	private String mailAddress;
 	
 	

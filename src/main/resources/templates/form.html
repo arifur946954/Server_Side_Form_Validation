@@ -12,7 +12,7 @@
 	<div class="container row g-3 align-items-center">
 		<div class="row mt-5">
 			<div class="row-md-6 offset-md-3">
-				
+				<h1>Register Here</h1>
 	
 	//action="@{/process}": This attribute specifies where the form data should be sent 			
 <form th:action="@{/process}" method="post" th:object="${loginData}">
@@ -22,9 +22,19 @@
     <input type="text" 
     name="userName"
     th:value="${loginData.userName}"
+    th:classappend="${#fields.hasErrors('userName')?'is-invalid':''}"
     class="form-control"
      id="exampleFormControlTextarea1"
       aria-describedby="emailHelp">
+      
+       <div  th:each="e : ${#fields.errors('userName')}" th:text="${e}" id="validationServer03Feedback" class="invalid-feedback">
+        
+      </div>
+      
+      
+      
+    
+     
       
     <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
   </div>
@@ -34,15 +44,35 @@
     <input type="email"
     name="mailAddress"
    th:value="${loginData.mailAddress}"
+       th:classappend="${#fields.hasErrors('mailAddress')?'is-invalid':''}"
      class="form-control"
-         id="exampleInputEmail1"
+         id="exampleInputEmail1">
+         
+         <div  th:each="e : ${#fields.errors('mailAddress')}" th:text="${e}" id="validationServer03Feedback" class="invalid-feedback">
+        
+      </div>
      
       
   </div>
   <div class="mb-3 form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    <input 
+      type="checkbox"
+      
+       
+  
+      class="form-check-input" 
+      id="exampleCheck1">
+       
+      
+    <label class="form-check-label" for="exampleCheck1">Aggree term and condition</label>
+    
   </div>
+  
+  
+
+	  
+
+  
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 				
